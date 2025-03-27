@@ -15,7 +15,8 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'aruco_detector = vslam_package.aruco_detector:main',  # Make sure this matches the path and method
+            'aruco_detector = vslam_package.aruco_detector:main',
+            'vslam_node = vslam_package.vslam_node:main',
         ],
     },
 )

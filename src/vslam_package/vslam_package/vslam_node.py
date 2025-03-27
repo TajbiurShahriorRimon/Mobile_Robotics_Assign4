@@ -1,29 +1,52 @@
+#!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
+from nav_msgs.msg import Odometry
 from vslam_package.msg import ArucoMarker
-from geometry_msgs.msg import PoseStamped
+import numpy as np
 
-class VSLAM(Node):
+class VSLAMNode(Node):
     def __init__(self):
         super().__init__('vslam_node')
-        self.subscription = self.create_subscription(ArucoMarker, 'aruco_detections', self.marker_callback, 10)
-        self.pose_publisher = self.create_publisher(PoseStamped, 'robot_pose', 10)
+        
+        # Subscribers
+        self.sub_odom = self.create_subscription(Odometry, '/rtabmap/odom', self.odom_callback, 10)
+        self.sub_aruco = self.create_subscription(ArucoMarker, '/aruco_markers', self.aruco_callback, 10)
+        
+        # Storage for markers (ID: corners)
+        self.markers = {}  
+        
+    def odom_callback(self, msg):
+        """Callback for VSLAM odometry."""
+        # TODO: Fuse with ArUco data to improve localization
+        pass
 
-    def marker_callback(self, msg):
-        pose_msg = PoseStamped()
-        pose_msg.header.stamp = self.get_clock().now().to_msg()
-        pose_msg.pose.position.x = msg.x
-        pose_msg.pose.position.y = msg.y
-        pose_msg.pose.orientation.w = 1.0  
-        self.pose_publisher.publish(pose_msg)
+    def aruco_callback(self, msg):
+        """Callback for ArUco marker detection."""
+        if msg.id in [1, 2, 3, 4]:  # Only track IDs 1-4
+            self.markers[msg.id] = np.array(msg.corners).reshape(4, 2)  # Store corners as 4x2 array
+            self.get_logger().info(f"Updated marker {msg.id} pose")
 
-def main(args=None):
-    rclpy.init(args=args)
-    vslam_node = VSLAM()
-    rclpy.spin(vslam_node)
-    vslam_node.destroy_node()
+            # If all 4 markers detected, compute center
+            if len(self.markers) == 4:
+                self.compute_environment_center()
+
+    def compute_environment_center(self):
+        """Calculate center point from 4 ArUco markers."""
+        centers = []
+        for corners in self.markers.values():
+            centers.append(np.mean(corners, axis=0))  # Center of each marker
+        
+        env_center = np.mean(centers, axis=0)  # Global center
+        self.get_logger().info(f"Environment center: {env_center}")
+        # TODO: Publish this to a topic for navigation
+
+def main():
+    rclpy.init()
+    node = VSLAMNode()
+    rclpy.spin(node)
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
-
