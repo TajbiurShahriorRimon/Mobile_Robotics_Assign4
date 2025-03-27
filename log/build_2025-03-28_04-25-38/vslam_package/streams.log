@@ -1,0 +1,42 @@
+[0.386s] Invoking command in '/home/agilex/taj_ws/src/vslam_package': PYTHONPATH=/home/agilex/taj_ws/build/vslam_package/prefix_override:/home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/vslam_package build --build-base /home/agilex/taj_ws/build/vslam_package/build install --record /home/agilex/taj_ws/build/vslam_package/install.log --single-version-externally-managed
+[0.507s] running egg_info
+[0.507s] creating ../../build/vslam_package/vslam_package.egg-info
+[0.508s] writing ../../build/vslam_package/vslam_package.egg-info/PKG-INFO
+[0.508s] writing dependency_links to ../../build/vslam_package/vslam_package.egg-info/dependency_links.txt
+[0.508s] writing entry points to ../../build/vslam_package/vslam_package.egg-info/entry_points.txt
+[0.508s] writing requirements to ../../build/vslam_package/vslam_package.egg-info/requires.txt
+[0.508s] writing top-level names to ../../build/vslam_package/vslam_package.egg-info/top_level.txt
+[0.508s] writing manifest file '../../build/vslam_package/vslam_package.egg-info/SOURCES.txt'
+[0.509s] reading manifest file '../../build/vslam_package/vslam_package.egg-info/SOURCES.txt'
+[0.509s] writing manifest file '../../build/vslam_package/vslam_package.egg-info/SOURCES.txt'
+[0.509s] running build
+[0.509s] running build_py
+[0.509s] creating /home/agilex/taj_ws/build/vslam_package/build
+[0.509s] creating /home/agilex/taj_ws/build/vslam_package/build/lib
+[0.509s] creating /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package
+[0.509s] copying vslam_package/__init__.py -> /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package
+[0.509s] copying vslam_package/aruco_detector.py -> /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package
+[0.509s] copying vslam_package/vslam_node.py -> /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package
+[0.509s] running install
+[0.510s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.510s]   warnings.warn(
+[0.510s] running install_lib
+[0.510s] creating /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package
+[0.510s] copying /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package/__init__.py -> /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package
+[0.510s] copying /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package/aruco_detector.py -> /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package
+[0.510s] copying /home/agilex/taj_ws/build/vslam_package/build/lib/vslam_package/vslam_node.py -> /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package
+[0.510s] byte-compiling /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package/__init__.py to __init__.cpython-310.pyc
+[0.510s] byte-compiling /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package/aruco_detector.py to aruco_detector.cpython-310.pyc
+[0.511s] byte-compiling /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package/vslam_node.py to vslam_node.cpython-310.pyc
+[0.511s] running install_data
+[0.511s] creating /home/agilex/taj_ws/install/vslam_package/share/ament_index
+[0.511s] creating /home/agilex/taj_ws/install/vslam_package/share/ament_index/resource_index
+[0.511s] creating /home/agilex/taj_ws/install/vslam_package/share/ament_index/resource_index/packages
+[0.511s] copying resource/vslam_package -> /home/agilex/taj_ws/install/vslam_package/share/ament_index/resource_index/packages
+[0.511s] copying package.xml -> /home/agilex/taj_ws/install/vslam_package/share/vslam_package
+[0.512s] running install_egg_info
+[0.513s] Copying ../../build/vslam_package/vslam_package.egg-info to /home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages/vslam_package-0.0.0-py3.10.egg-info
+[0.513s] running install_scripts
+[0.525s] Installing aruco_detector script to /home/agilex/taj_ws/install/vslam_package/lib/vslam_package
+[0.525s] writing list of installed files to '/home/agilex/taj_ws/build/vslam_package/install.log'
+[0.537s] Invoked command in '/home/agilex/taj_ws/src/vslam_package' returned '0': PYTHONPATH=/home/agilex/taj_ws/build/vslam_package/prefix_override:/home/agilex/taj_ws/install/vslam_package/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/vslam_package build --build-base /home/agilex/taj_ws/build/vslam_package/build install --record /home/agilex/taj_ws/build/vslam_package/install.log --single-version-externally-managed

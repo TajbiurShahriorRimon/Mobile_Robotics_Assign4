@@ -1,24 +1,25 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
+from vslam_package.msg import ArucoMarker
+from geometry_msgs.msg import PoseStamped
 
-class VSLAMNode(Node):
+class VSLAM(Node):
     def __init__(self):
         super().__init__('vslam_node')
-        self.publisher = self.create_publisher(String, '/vslam_status', 10)
-        self.get_logger().info('VSLAM Node has been started.')
+        self.subscription = self.create_subscription(ArucoMarker, 'aruco_detections', self.marker_callback, 10)
+        self.pose_publisher = self.create_publisher(PoseStamped, 'robot_pose', 10)
 
-        # Start VSLAM process or any additional initialization here
-        self.publish_status()
-
-    def publish_status(self):
-        msg = String()
-        msg.data = "VSLAM process started!"
-        self.publisher.publish(msg)
+    def marker_callback(self, msg):
+        pose_msg = PoseStamped()
+        pose_msg.header.stamp = self.get_clock().now().to_msg()
+        pose_msg.pose.position.x = msg.x
+        pose_msg.pose.position.y = msg.y
+        pose_msg.pose.orientation.w = 1.0  
+        self.pose_publisher.publish(pose_msg)
 
 def main(args=None):
     rclpy.init(args=args)
-    vslam_node = VSLAMNode()
+    vslam_node = VSLAM()
     rclpy.spin(vslam_node)
     vslam_node.destroy_node()
     rclpy.shutdown()
