@@ -4,3 +4,6 @@ source;share/vslam_package/hook/pythonpath.sh
 source;share/vslam_package/hook/ament_prefix_path.ps1
 source;share/vslam_package/hook/ament_prefix_path.dsv
 source;share/vslam_package/hook/ament_prefix_path.sh
+source;../../build/vslam_package/share/vslam_package/hook/pythonpath_develop.ps1
+source;../../build/vslam_package/share/vslam_package/hook/pythonpath_develop.dsv
+source;../../build/vslam_package/share/vslam_package/hook/pythonpath_develop.sh

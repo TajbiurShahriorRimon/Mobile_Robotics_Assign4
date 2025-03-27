@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'aruco_detector = vslam_package.aruco_detector:main'
         ],
     },
 )

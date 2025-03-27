@@ -1,3 +1,3 @@
 [console_scripts]
-
+aruco_detector = vslam_package.aruco_detector:main
 
